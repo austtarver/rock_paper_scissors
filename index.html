@@ -13,15 +13,16 @@
 <button id="btn">paper</button>
 <button id="btn">scissors</button>
 </div>
-<div id="gameText">It is up to you to defeat the computer in a game of rock, paper, scissors to save the metaverse</div>
+<div id="gameText">It is up to you to save the Metaverse from utter destruction by beating the computer in a first to 5 game of Rock, Paper, Scissors</div>
+<div id ="roundText"> </div>
 <div class="scoreboard">
 <div id="playerScoreFull">
 <p id="playerScoreText">Player Score:</p>
-<div id="playerScoreCard"></div>
+<div id="playerScoreCard">0</div>
 </div>
 <div id="computerScoreFull">
-<p id="computerScoreText">Computer Score:</p>
-<div id='computerScoreCard'></div>
+<p id="computerScoreText">CPU Score:</p>
+<div id='computerScoreCard'>0</div>
 </div>
 </div>
 </div>
@@ -38,7 +39,7 @@
           let playerChoice= button.innerText;
           let computerChoice= computerPlay();
           playRound(playerChoice,computerChoice,score);
-            
+          document.getElementById("gameText").innerText= " ";
           document.getElementById("playerScoreCard").innerText=score[0];
           document.getElementById("computerScoreCard").innerText=score[1];
           
@@ -48,6 +49,7 @@
             score[1]=0;
             document.getElementById("playerScoreCard").innerText=score[0];
             document.getElementById("computerScoreCard").innerText=score[1];
+            
           } 
           else if(score[1] >=5)
           {
@@ -56,6 +58,7 @@
             score[1]=0;
             document.getElementById("playerScoreCard").innerText=score[0];
             document.getElementById("computerScoreCard").innerText=score[1];
+           
           }
               
           
@@ -80,22 +83,25 @@
               { document.getElementById("gameText").innerText='rock beats scissors: Player wins the round';
                 score[0]++;
               }else if(playerSelection==='rock' && computerSelection==='paper'){
-                document.getElementById("gameText").innerText='paper beats rock: Computer wins the round';
+                document.getElementById("roundText").innerText='Rock beats Scissors: Player wins the round';
+                score[0]++;
+              }else if(playerSelection==='rock' && computerSelection==='paper'){
+                document.getElementById("roundText").innerText='Paper beats Rock: Computer wins the round';
                 score[1]++;
               }else if(playerSelection==='paper' && computerSelection==='rock'){
-                document.getElementById("gameText").innerText='paper beats rock: Player wins the round';
+                document.getElementById("roundText").innerText='Paper beats Rock: Player wins the round';
                 score[0]++;
               }else if(playerSelection==='paper' && computerSelection==='scissors'){
-                document.getElementById("gameText").innerText='scissors beats paper: Computer wins the round';
+                document.getElementById("roundText").innerText='Scissors beats Paper: Computer wins the round';
                 score[1]++;
               }else if(playerSelection==='scissors' && computerSelection==='paper'){
-                document.getElementById("gameText").innerText='scissors beats paper: Player wins the round';
+                document.getElementById("roundText").innerText='Scissors beats Paper: Player wins the round';
                 score[0]++;
               }else if(playerSelection==='scissors' && computerSelection==='rock'){
-                document.getElementById("gameText").innerText='rock beats scissors: Computer wins the round';
+                document.getElementById("roundText").innerText='Rock beats Scissors: Computer wins the round';
                 score[1]++;
               }else{
-                document.getElementById("gameText").innerText='draw round';
+                document.getElementById("roundText").innerText='Draw Round';
               }
             
               return score;

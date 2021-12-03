@@ -57,7 +57,7 @@ img{
     text-shadow: 1px 1px 1px #000;
     font-family: sans-serif;
     text-align: center;
-    min-width:1600px;
+    min-width: 80%;
 }
 #roundText{
     min-width: 100%;

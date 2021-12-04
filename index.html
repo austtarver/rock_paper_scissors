@@ -3,128 +3,36 @@
 <head>
   <title>Page Title</title>
   <meta charset="UTF-8"/>
-  <link rel="stylesheet" href="style.css">
+  <link rel = "stylesheet" href = "style.css">
+  
 </head>
 <body>
-
-<div id="container">
-<div id="gameText">It is up to you to save the Metaverse from utter destruction by defeating the computer in a first to 5 game of Rock, Paper, Scissors!</div>
-<div id ="roundText">Click one of the options below to begin Ro-Sham-Bo</div>
-
-<div id="main-content">
-<div class="scoreboard">
-<div id="playerScoreFull">
-<p id="playerScoreText">Player Score:</p>
-<div id="playerScoreCard">0</div>
-</div>
-
-<div id="computerScoreFull">
-<p id="computerScoreText">CPU Score:</p>
-<div id='computerScoreCard'>0</div>
-</div>
-
-</div>
-
-  <div class ="input-options">
-<button id="btn" class ="rock"><img src="img/noun_rock_88661.png"></button>
-<button id="btn" class ="paper"><img src="img/noun_Paper_88662.png"></button>
-<button id="btn" class ="scissors"><img src="img/noun_Scissors_88666.png" alt="scissors"></button>
-</div>
-
-</div>
-</div>
-
-  <script>
-   
-   let playerScore = 0;
-   let computerScore = 0;
-   const score=[playerScore, computerScore];
-   const buttons=document.querySelectorAll('button');
-   const button=document.querySelectorAll('#btn')
-
-    buttons.forEach((button) => {
-        button.addEventListener('click',()=>{
-          let playerChoice= button.className;
-          let computerChoice= computerPlay();
-          playRound(playerChoice,computerChoice,score);
-          
-          
-          document.getElementById("playerScoreCard").innerText=score[0];
-          document.getElementById("computerScoreCard").innerText=score[1];
-          
-          if (score[0] >= 5){
-            document.getElementById("gameText").innerText='Congratulations: You have successfuly saved the Metaverse!';
-            
-            document.getElementById("playerScoreCard").innerText=score[0];
-            document.getElementById("computerScoreCard").innerText=score[1];
-            score[0]=0;
-            score[1]=0;
-            
-          } 
-          else if(score[1] >=5)
-          {
-            document.getElementById("gameText").innerText='Game Over: The Computer has Destroyed the Metaverse!';
-            
-            document.getElementById("playerScoreCard").innerText=score[0];
-            document.getElementById("computerScoreCard").innerText=score[1];
-            score[0]=0;
-            score[1]=0;
-          }
-              
-          
-        })
-    });
-
-    
-
-  function computerPlay(){
-      let computerChoices=['rock','paper','scissors'];
-      let randomChoice=Math.floor(Math.random() * computerChoices.length);
-      return computerChoices[randomChoice];
-    }
   
-      
-  function playRound(playerChoice,computerChoice, score){
-               
-               playerSelection = playerChoice;
-               computerSelection = computerChoice;
-                
-               if(playerSelection===computerSelection){
-                document.getElementById("roundText").innerText='Draw Round';
-               }
+<div id = "container">
+  <div id = "gameText">It is up to you to save the Metaverse from utter destruction by defeating the computer in a first to 5 game of Rock, Paper, Scissors!</div>
+  <div id = "roundText">Click one of the options below to begin Ro-Sham-Bo</div>
 
-               if(playerSelection==="rock" && computerSelection==="scissors")
-              { document.getElementById("roundText").innerText='Rock beats Scissors: Player wins the round';
-                score[0]++;
-              }
+  <div id = "main-content">
+    <div class = "scoreboard">
+      <div id = "playerScoreFull">
+        <p id = "playerScoreText">Player Score:</p>
+        <div id = "playerScoreCard">0</div>
+      </div>
 
-              if(computerSelection==='rock' && playerSelection==='scissors'){
-                document.getElementById("roundText").innerText='Rock beats Scissors: Computer wins the round';
-                score[1]++;
-              }
+      <div id= "computerScoreFull">
+        <p id= "computerScoreText">CPU Score:</p>
+        <div id= 'computerScoreCard'>0</div>
+      </div>
+    </div>
+    <div class ="input-options">
+    <button id = "btn" class = "rock"><img src = "img/noun_rock_88661.png"></button>
+    <button id = "btn" class = "paper"><img src = "img/noun_Paper_88662.png"></button>
+    <button id = "btn" class = "scissors"><img src = "img/noun_Scissors_88666.png" alt="scissors"></button>
+    </div>
 
-              if(playerSelection==='paper' && computerSelection==='rock'){
-                document.getElementById("roundText").innerText='Paper beats Rock: Player wins the round';
-                score[0]++;
-              }
+  </div>
+</div>
 
-              if(computerSelection==='paper' && playerSelection==='rock'){
-                document.getElementById("roundText").innerText='Paper beats Rock: Computer wins the round';
-                score[1]++;
-              }
-
-              if(playerSelection==='scissors' && computerSelection==='paper'){
-                document.getElementById("roundText").innerText='Scissors beats Paper: Player wins the round';
-                score[0]++;
-              }
-
-              if(computerSelection==='scissors' && playerSelection==='paper'){
-                document.getElementById("roundText").innerText='Scissors beats Paper: Computer wins the round';
-                score[1]++;
-              }
-            
-              return score;
-            }
-  </script>
+<script src = "script.js"></script> 
 </body>
 </html>
